@@ -1,0 +1,61 @@
+﻿@{
+    var user = Session["User"] as DoAn1.Models.LoginModel;
+}
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Content/DoAn1.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+    <ul>
+        <li><a href="~/Home/Index">Logo</a></li>
+        <li>
+            <div>
+                <form action="~/Home/SearchBook" method="get">
+                    <p>
+                        @Html.TextBox("SearchString", null, new { @class = "Search" })<button type="submit"><i class="material-icons">search</i></button>
+                    </p>
+                </form>
+            </div>
+        </li>
+        @if (user == null)
+        {
+            <li class="Login"><a href="/Login"> Đăng Nhập <i class="material-icons">person</i></a></li> }
+        else
+        {
+            <li class="Login">
+                <ul>
+                    <li class="text-user Login">Xin chào: @user.TenKH</li>
+                </ul>
+                <ul>
+                    <li><a href="/Login/Logout" id="logout-user">Đăng Xuất</a></li>
+                </ul>
+            </li>
+
+            <li class="Cart"><a href="~/Home/CartDetail"> Giỏ Hàng<i class="material-icons">add_shopping_cart</i></a></li>
+        }
+    </ul>
+    <div class="vertical-menu">
+        <a href="~/Home/CategoryBook?categoryString=Truyện Trinh Thám"> Truyện Trinh Thám</a>
+        <a href="~/Home/CategoryBook?categoryString=Truyện Ngôn Tình">Truyện Ngôn Tình</a>
+        <a href="~/Home/CategoryBook?categoryString=Sách Song Ngữ">Sách Song Ngữ</a>
+        <a href="~/Home/CategoryBook?categoryString=Sách Khoa Học">Sách Khoa Học</a>
+        <a href="~/Home/CategoryBook?categoryString=Truyện Khoa Học Viễn Tưởng">Truyện Khoa Học Viễn Tưởng</a>
+        <a href="~/Home/CategoryBook?categoryString=Sách Dạy Nấu Ăn">Sách Dạy Nấu Ăn</a>
+        <a href="~/Home/CategoryBook?categoryString=Truyện Thiếu Nhi">Truyện Thiếu Nhi</a>
+        <a href="~/Home/CategoryBook?categoryString=Văn Học Nước Ngoài">Văn Học Nước Ngoài</a>
+        <a href="~/Home/CategoryBook?categoryString=Sách Giáo Khoa">Sách Giáo Khoa</a>
+        <a href="~/Home/CategoryBook?categoryString=Tập Tô Màu">Tập Tô Màu</a>
+    </div>
+</body>
+@RenderBody()
+<footer>
+    <div class="footer">
+        <p>Sư Vạn Hạnh,Quận 10,Sài Gòn</p>
+        <p>&copy; @DateTime.Now.Year Huflit.edu.vn<p>
+        <p>0123456789</p>
+    </div>
+</footer>
+

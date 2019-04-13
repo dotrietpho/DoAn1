@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "SearchBook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body>
+    <div class="warning-text">@ViewBag.Messenge</div>
+    <div class="row">
+        @if (ViewBag.ListBook != null)
+        {
+            foreach (var item in ViewBag.ListBook)
+            {
+                <div class="column">
+                    <div class="card">
+                        <a href="~/Home/Detail/@item.id">
+                            <img src="~/UploadedFiles/@item.HinhSach" alt="@item.TenSach" class="img">
+                        </a>
+                        <p>@item.TenSach</p>
+                        <h3>@item.GiaSach vnd</h3>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+</body>
+

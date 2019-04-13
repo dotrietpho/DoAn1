@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="warning-text">@ViewBag.Messenge</div>
+@if (ViewBag.Book != null)
+{
+<div class="card" id="card-detail">
+    <img src="~/UploadedFiles/@ViewBag.Book.HinhSach" alt="@ViewBag.Book.id" id="img-detail">
+    <h1>@ViewBag.Book.TenSach</h1>
+    <p class="title"></p>
+    <h2>@ViewBag.Book.MoTa</h2>
+    <h5 style="font-size:160%;">Tác Giả: @ViewBag.Book.TenTacGia</h5>
+    <div class="MieuTa">
+        <b>
+            <p>Số Trang: @ViewBag.Book.SoTrang</p>
+            <p>Thể Loại: @ViewBag.Book.ChuDe</p>
+            <p>Xuất bản lần đầu tiên: @ViewBag.Book.NgayXuatBan</p>
+        </b>
+    </div>
+    <h2>150.000 vnd</h2>
+    <form action="~/Home/AddCart/@ViewBag.Book.id" method="post">
+        <button id="add-cart">Thêm vào giỏ hàng</button>
+        </form>
+</div>
+}
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+

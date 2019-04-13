@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "CartDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body>
+    <div class="warning-text" style="text-align:center">@ViewBag.Messenge</div>
+    <div>
+        @if (TempData["listemptyMessage"] == null)
+        {
+            <table class="table2">
+                <caption class="caption1"><b>Chi Tiết Giỏ Hàng</b></caption>
+                <tr>
+                    <th>Tên Sách</th>
+                    <th>Giá</th>
+                    <th>Hình ảnh</th>
+                    <th>Chức năng</th>
+                </tr>
+                @foreach (var book in ViewBag.ListBook)
+                {
+                    <tr>
+                        <td>@book.TenSach</td>
+                        <td>@book.GiaSach</td>
+                        <td><img src="~/UploadedFiles/@book.HinhSach" class="image1"></td>
+                        <td>
+                            <a href="~/Home/Detail/@book.id" class="fa fa-search" title="Search W3Schools"></a>
+                            <span></span>
+                            <a href="/Home/RemoveCart/@book.id" class="fa fa-close"></a>
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td colspan="6" style="text-align:right">Tổng Giá:@ViewBag.TongGia vnd </td>
+                </tr>
+            </table>
+        }
+        else
+        {
+            <div class="warning-text">Giỏ hàng trống</div>
+            <div style="text-align:center"><h1>Click <a href="/Home" class="cheer-text">Vào đây</a> để bắt đầu mua sắm</h1>  </div>
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        }
+    </div>
+
+    </body>

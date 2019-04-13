@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Register</h2>
+
+<body>
+    <div class="warning-text">@ViewBag.Messenge</div>
+    <div>
+        @using (Html.BeginForm())
+        {
+            <table class="table1" width="550" height="200" border="2" cellpadding="8" align="center">
+                <tr>
+                    <th colspan="2"> ĐĂNG KÝ</th>
+                </tr>
+                <tr>
+                    <td> Email </td>
+                    <td>
+                        <input type="text" placeholder="nhập email" size="40" name="TaiKhoan">
+                    </td>
+                </tr>
+                <tr>
+                    <td> Mật Khẩu </td>
+                    <td>
+                        <input type="password" placeholder="nhập mật khẩu" size="40" name="password">
+                    </td>
+                </tr>
+                <tr>
+                    <td> Nhập Lại Mật Khẩu </td>
+                    <td>
+                        <input type="password" placeholder="nhập lại mật khẩu" size="40" name="ReTypedpassword">
+                    </td>
+                </tr>
+                <tr>
+                    <td> Họ Tên </td>
+                    <td>
+                        <input type="text" placeholder="nhập họ và tên" size="40" name="TenKH">
+                    </td>
+                </tr>
+                <tr>
+                    <td> Số Điện Thoại </td>
+                    <td>
+                        <input type="text" onkeypress="isInputNumber(event)" placeholder="nhập số điện thoại" size="40" name="SDT">
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td> Ngày Sinh </td>
+                    <td>
+                        <input type="date" placeholder="nhập ngày sinh" size="40" name="NgaySinh">
+                    </td>
+                </tr>
+                <tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <button type="submit" value="Register">Đăng Ký</button>
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+
+</body>
+<script>
+
+    function isInputNumber(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[0-9]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+</script>
